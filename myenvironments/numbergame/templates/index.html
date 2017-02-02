@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8">
+            <title>Great Number Game</title>
+      </head>
+      <body>
+            <h1>Welcome to the Great Number Game!</h1>
+            <p><h4>I am thinking of a number between 1 and 100</p>
+            <p>Take a guess!</p>
+            <form action="/submit" method="post">
+                  <input type="text" name="number">
+                  <p><input type="submit" name="Submit"></p>
+            </form>
+            {% if session['guess'] %}
+                  {% if session['random'] == session['guess']: %}
+                        <p>{{session['guess']}} was the number!</p>
+
+                  {% elif session['random'] > session['guess']: %}
+                        <p>{{session['guess']}} was your guess. Too low.</p>
+
+                  {% elif session['random'] < session['guess']: %}
+                        <p>{{session['guess']}} was your guess. Too high.</p>
+                  {% endif %}
+            {% endif %}
+            <a href='/reset'><button>Play again!</button></a>
+      </body>
+</html>
