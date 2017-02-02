@@ -23,7 +23,7 @@ def user_guess():
 
 @app.route('/reset')
 def clear():
-	session.pop('random', 'guess')
+	session.clear()
 	return redirect('/')
 
 app.run(debug=True)
